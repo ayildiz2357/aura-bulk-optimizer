@@ -2,7 +2,7 @@
   "name": "ai-bulk-optimizer",
   "private": true,
   "scripts": {
-    "build": "remix vite:build",
+    "build": "prisma generate && prisma db push --accept-data-loss && remix vite:build",
     "dev": "shopify app dev",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
