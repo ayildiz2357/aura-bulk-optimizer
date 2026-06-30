@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "b9b9d2ab236ac8f1337858261c80d621"
-application_url = "https://example.com"
+application_url = "https://aura-bulk-optimizer-yi4c.vercel.app"
 embedded = true
 name = "ai-bulk-optimizer"
 
@@ -12,6 +12,11 @@ scopes = "write_products"
 [webhooks]
 api_version = "2026-07"
 
+  [webhooks.privacy_compliance]
+  customer_deletion_url = "https://aura-bulk-optimizer-yi4c.vercel.app/webhooks"
+  customer_data_request_url = "https://aura-bulk-optimizer-yi4c.vercel.app/webhooks"
+  shop_deletion_url = "https://aura-bulk-optimizer-yi4c.vercel.app/webhooks"
+
   [[webhooks.subscriptions]]
   uri = "/webhooks/app/uninstalled"
   topics = [ "app/uninstalled" ]
@@ -21,8 +26,11 @@ api_version = "2026-07"
   topics = [ "app/scopes_update" ]
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [ 
+  "https://aura-bulk-optimizer-yi4c.vercel.app/auth/callback",
+  "https://aura-bulk-optimizer-yi4c.vercel.app/auth/shopify/callback",
+  "https://aura-bulk-optimizer-yi4c.vercel.app/api/auth/callback"
+]
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true
